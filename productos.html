@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css2/insumos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="logo">Kroma</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="administrador.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ventas.html">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empleados.html">Empleados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clientes.html">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proveedores.html">Proveedores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="insumos.html">Insumos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner text-center">
+        <div class="banner-overlay">
+            <div class="container">
+                <h2>Productos</h2>
+                <div class="boton text-right mb-3">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ProductoModal">
+                        Registrar nuevo Producto
+                    </button>
+                </div>
+                <table class="table table-striped" id="productosTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Producto</th>
+                            <th>Categoría</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cerveza</td>
+                            <td>Bebidas</td>
+                            <td>100</td>
+                            <td>$2.50</td>
+                        </tr>
+                        <tr>
+                            <td>Vino Tinto</td>
+                            <td>Bebidas Alcohólicas</td>
+                            <td>50</td>
+                            <td>$8.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border-top: 4px solid #0d6efd; margin: 50px 0;">
+
+    <div class="banner text-center">
+        <div class="banner-overlay">
+            <div class="container">
+                <h2>Categorías de Productos</h2>
+                <div class="boton text-right mb-3">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CategoriaProductoModal">
+                        Registrar nueva Categoría de Producto
+                    </button>
+                </div>
+                <table class="table table-striped" id="categoriasProductoTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre de la Categoría</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bebidas Alcohólicas</td>
+                            <td>Incluye todo tipo de bebidas con alcohol</td>
+                        </tr>
+                        <tr>
+                            <td>Snacks</td>
+                            <td>Comida rápida y bocadillos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Producto -->
+    <div class="modal fade" id="ProductoModal" tabindex="-1" aria-labelledby="ProductoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registro de nuevo Producto</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="productoForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre del Producto:</label>
+                            <input type="text" class="form-control" id="nombreProducto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Categoría:</label>
+                            <input type="text" class="form-control" id="categoriaProducto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cantidad:</label>
+                            <input type="number" class="form-control" id="cantidadProducto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Precio:</label>
+                            <input type="text" class="form-control" id="precioProducto" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="registerProductoButton">Registrar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Categoría -->
+    <div class="modal fade" id="CategoriaProductoModal" tabindex="-1" aria-labelledby="CategoriaProductoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Registro de nueva Categoría de Producto</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="categoriaProductoForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre de la Categoría:</label>
+                            <input type="text" class="form-control" id="nombreCategoriaProducto" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <textarea class="form-control" id="descripcionCategoriaProducto" rows="3" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="registerCategoriaProductoButton">Registrar Categoría</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <footer class="footer-copy">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>2025 &copy; Kroma</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Registrar Producto
+        document.getElementById('registerProductoButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombreProducto').value;
+            const categoria = document.getElementById('categoriaProducto').value;
+            const cantidad = document.getElementById('cantidadProducto').value;
+            const precio = document.getElementById('precioProducto').value;
+
+            if (nombre && categoria && cantidad && precio) {
+                const table = document.getElementById('productosTable').getElementsByTagName('tbody')[0];
+                const newRow = table.insertRow();
+
+                newRow.insertCell(0).textContent = nombre;
+                newRow.insertCell(1).textContent = categoria;
+                newRow.insertCell(2).textContent = cantidad;
+                newRow.insertCell(3).textContent = `$${parseFloat(precio).toFixed(2)}`;
+
+                alert('Producto registrado correctamente');
+
+                bootstrap.Modal.getInstance(document.getElementById('ProductoModal')).hide();
+                document.getElementById('productoForm').reset();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+
+        // Registrar Categoría
+        document.getElementById('registerCategoriaProductoButton').addEventListener('click', function (event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombreCategoriaProducto').value;
+            const descripcion = document.getElementById('descripcionCategoriaProducto').value;
+
+            if (nombre && descripcion) {
+                const table = document.getElementById('categoriasProductoTable').getElementsByTagName('tbody')[0];
+                const newRow = table.insertRow();
+
+                newRow.insertCell(0).textContent = nombre;
+                newRow.insertCell(1).textContent = descripcion;
+
+                alert('Categoría registrada correctamente');
+
+                bootstrap.Modal.getInstance(document.getElementById('CategoriaProductoModal')).hide();
+                document.getElementById('categoriaProductoForm').reset();
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+    </script>
+</body>
+</html>
